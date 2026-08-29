@@ -163,8 +163,8 @@ Also, [9316B Rom replacement](https://forum.allaboutcircuits.com/threads/9316b-r
 <!-- Images -->
 
 
-  [1]: xtras/images/Currah%20internals.png "ULA IC code"
-  [2]: xtras/images/hw.jpg "Annotted hardware"
-  [3]: xtras/images/hw.jpg "Hardware"
-  [4]: xtras/images/Currah%20internals.png "More blue components, including the bypass capacitor - capacitors"
+  [1]: ../xtras/images/Currah%20internals.png "ULA IC code"
+  [2]: ../xtras/images/hw.jpg "Annotted hardware"
+  [3]: ../xtras/images/hw.jpg "Hardware"
+  [4]: ../xtras/images/Currah%20internals.png "More blue components, including the bypass capacitor - capacitors"
 
