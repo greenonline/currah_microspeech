@@ -68,12 +68,11 @@ ICs:
  - U3 ULA LA05-147 (28 pin)
 
 
-Interestingly, this photo shows R11 unpopulated:
+Interestingly, this photo, from [Sinclair ZX Spectrum Currah Microspeech & Sound Output](https://www.youtube.com/watch?v=PdAvMTof0jo), shows R11 unpopulated:
 
 [![R11 unpopulated][1]][1]
 
-This photo shows a bodged resistor between pin 9 ULA and a pin on the ZXSprectrum bus?
-
+This photo, from the same video, shows a bodged resistor between pin 9 ULA and a pin on the ZXSpectrum bus?
 
 [![Bodged resistor][2]][2]
 
