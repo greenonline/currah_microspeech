@@ -91,10 +91,10 @@ From this image, taken from [currah_uspeech_tests](https://maziac.github.io/curr
 
 <!-- Images -->
 
-  [1]: xtras/images/R11%20unpopulated.png "R11 unpopulated"
-  [2]: xtras/images/Bodged%20resistor.png "Bodged resistor"
-  [3]: xtras/images/currah-speech-modified-768x433.jpg "R11 not going to pin 26"
-  [4]: xtras/images/hw.jpg "Annotted hardware"
+  [1]: ../xtras/images/R11%20unpopulated.png "R11 unpopulated"
+  [2]: ../xtras/images/Bodged%20resistor.png "Bodged resistor"
+  [3]: ../xtras/images/currah-speech-modified-768x433.jpg "R11 not going to pin 26"
+  [4]: ../xtras/images/hw.jpg "Annotted hardware"
 
 
   
