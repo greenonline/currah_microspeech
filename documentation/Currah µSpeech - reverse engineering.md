@@ -145,7 +145,7 @@ SEROUT 12 |       | 17  A2
           +-------+
 ```
 
-Pin 27 tied to ground
+Pins 14 & 27 tied to ground
 
 
 #### 9316C
@@ -179,7 +179,7 @@ Pins select (wrong):
 
 Recheck
 
- - 18 - CS2 - Pins 27 and 14 ULA (GND)
+ - 18 - CS2 - GND
  - 20 - CS1 - Pin 7 ULA
  - 21 - CS3 - Regulated 5V
 
