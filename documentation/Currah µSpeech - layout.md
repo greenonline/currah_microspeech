@@ -1,7 +1,14 @@
 # Currah µSpeech - layout
 
+## Notes
 
-Layout and routing mostly taken from these two images: [front](hw.jpg) and [rear](hw_back.jpg).
+### Determining layout/traces from photos
+
+Layout and routing mostly taken from these two images: [front](xtras/images/hw.jpg) and [rear](xtras/images/hw_back.jpg):
+
+[![Front of PCB][1]][1]
+
+[![Rear of PCB][2]][2]
 
 This video also has some good clear views of portions of the PCB, [Sinclair ZX Spectrum Currah Microspeech & Sound Output](https://www.youtube.com/watch?v=PdAvMTof0jo).
 
@@ -66,34 +73,41 @@ ICs:
  - U1 SP0256A-AL2 (28 pin)
  - U2 ROM 9316C (24 pin)
  - U3 ULA LA05-147 (28 pin)
+ - U4 7805
 
 
 Interestingly, this photo, from [Sinclair ZX Spectrum Currah Microspeech & Sound Output](https://www.youtube.com/watch?v=PdAvMTof0jo), shows R11 unpopulated:
 
-[![R11 unpopulated][1]][1]
+[![R11 unpopulated][3]][3]
 
 This photo, from the same video, shows a bodged resistor between pin 9 ULA and a pin on the ZXSpectrum bus?
 
-[![Bodged resistor][2]][2]
+[![Bodged resistor][4]][4]
 
 It is also a different revision of the PCB, or in better condition. The traces are much more defined and not so "bubbly and crinkled", as the traces on the PCB in the [currah_uspeech_tests](https://maziac.github.io/currah_uspeech_tests) blog.
 
 From this image, taken from [CURRAH MICRO SPEECH (USPEECH)](https://blog.bisinternet.com/index.php/sinclair/zx-spectrum/currah-micro-speech-uspeech/), it can be seen that R11 does *not* actually go to pin 26 of the SP0256
 
-[![R11 not going to pin 26][3]][3]
+[![R11 not going to pin 26][5]][5]
 
 From this image, taken from [currah_uspeech_tests](https://maziac.github.io/currah_uspeech_tests/), it looked as if R11 did, as well as going to pin 1 of the ULA (but now I am not even sure of that):
 
-[![Annotted hardware][4]][4]
+[![Annotated hardware][6]][6]
+
+### Determining layout/traces by physical device
+
+By this point, I had managed to get hold of a physical device from eBay (£21.50, maybe expensive for an untested and case broken open unit, but I didn't feel that smashing open a working unit was appropriate, seeing as they are not being made anymore. I got it for haf of the asking price anyway), which should makes things easier. 
 
 
 
 <!-- Images -->
 
-  [1]: ../xtras/images/R11%20unpopulated.png "R11 unpopulated"
-  [2]: ../xtras/images/Bodged%20resistor.png "Bodged resistor"
-  [3]: ../xtras/images/currah-speech-modified-768x433.jpg "R11 not going to pin 26"
-  [4]: ../xtras/images/hw.jpg "Annotted hardware"
+  [1]: ../xtras/images/hw.jpg "Front of PCB"
+  [2]: ../xtras/images/hw_back.jpg "Rear of PCB"
+  [3]: ../xtras/images/R11%20unpopulated.png "R11 unpopulated"
+  [4]: ../xtras/images/Bodged%20resistor.png "Bodged resistor"
+  [5]: ../xtras/images/currah-speech-modified-768x433.jpg "R11 not going to pin 26"
+  [6]: ../xtras/images/hw.jpg "Annotated hardware"
 
 
   
