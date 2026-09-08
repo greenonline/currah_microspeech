@@ -12,6 +12,9 @@ Layout and routing mostly taken from these two images: [front](xtras/images/hw.j
 
 This video also has some good clear views of portions of the PCB, [Sinclair ZX Spectrum Currah Microspeech & Sound Output](https://www.youtube.com/watch?v=PdAvMTof0jo).
 
+### General layout
+
+Improving component IDs:
 
 ```none
 ----------------------------------------------------           
@@ -31,19 +34,54 @@ J2                    R4      R1        C3         J3
 
 J3 is bus
 
+Front side
+
 ```none
- Bus 01b - via
- Bus 02b - via
- Bus 03b - 5V (n/c?)
+ Bus 01a - ULA 12
+ Bus 02a - x
+ Bus 03a - ROM 17
+ Bus 04a - x
+ Bus 05a - blank
+ Bus 06a - SP0256 18
+ Bus 07a - SP0256 17
+ Bus 08a - SP0256 16 & ROM 10
+ Bus 09a - ROM 14
+ Bus 10a - SP0256 13 & ROM 9
+ Bus 11a - ROM 13
+ Bus 12a - SP0256 pin 14
+ Bus 13a - x
+ Bus 14a - x
+ Bus 15a - x
+ Bus 16a - x
+ Bus 17a - x
+ Bus 18a - x
+ Bus 19a - ULA 26
+ Bus 20a - x
+ Bus 21a - x
+ Bus 22a - x
+ Bus 23a - x
+ Bus 24a - x
+ Bus 25a - x
+ Bus 26a - via ULA 22
+ Bus 27a - ULA 21
+ Bus 28a - ULA 16
+```
+ 
+back side
+
+```none
+ Bus 01b - via ULA 13
+ Bus 02b - via ULA 11
+ Bus 03b - x  (normally 5V)
  Bus 04b - 9V
  Bus 05b - blank
  Bus 06b - GND
  Bus 07b - GND
  Bus 08b - x
- Bus 09b - ULA 4 & ROM 8
- Bus 10b - ULA 5 & ROM 23
- Bus 11b - ULA 6 & ROM 22
- Bus 12b - ULA 8 & ROM 19
+ Bus 09b - ULA 4 & ROM 8  (A0)
+ Bus 10b - ULA 5 & ROM 23 (A1)
+ Bus 11b - ULA 6 & ROM 22 (A2)
+ Bus 12b - ULA 8 & ROM 19 (A3)
  Bus 13b - x 1
  Bus 14b - x 2
  Bus 15b - x 3
@@ -51,12 +89,12 @@ J3 is bus
  Bus 17b - x 5
  Bus 18b - x 6
  Bus 19b - x 7
- Bus 20b - ULA 25
- Bus 21b - ULA 24
- Bus 22b - ULA 23
- Bus 23b - ULA 20
- Bus 24b - ULA 19
- Bus 25b - ULA 15
+ Bus 20b - ULA 25 (/RESET)
+ Bus 21b - ULA 24 (A7)
+ Bus 22b - ULA 23 (A6)
+ Bus 23b - ULA 20 (A5)
+ Bus 24b - ULA 19 (A4)
+ Bus 25b - ULA 15 (/ROMCS)
  Bus 26b - x
  Bus 27b - ULA 17
  Bus 28b - ULA 18
@@ -96,9 +134,49 @@ From this image, taken from [currah_uspeech_tests](https://maziac.github.io/curr
 
 ### Determining layout/traces by physical device
 
-By this point, I had managed to get hold of a physical device from eBay (£21.50, maybe expensive for an untested and case broken open unit, but I didn't feel that smashing open a working unit was appropriate, seeing as they are not being made anymore. I got it for haf of the asking price anyway), which should makes things easier. 
+By this point, I had managed to get hold of a physical device from eBay (£21.50, maybe expensive for an untested and case broken open unit, but I didn't feel that smashing open a working unit was appropriate, seeing as they are not being made anymore. I got it for half of the asking price anyway), which should makes things easier. 
 
 
+### ULA connections from bus are all inputs?
+
+Would it make sense that the ULA only decodes info from the bus, to direct action on the PCB? Therefore, all bus connections to the ULA would be just input.
+
+Or would the ULA need to signal back to the CPU?
+
+### ZX bus for reference
+
+
+```none
+ A15   - 01a Bus 01b - A14
+ A13   - 02a Bus 02b - A12
+ D2    - 03a Bus 03b - 5V
+ NC    - 04a Bus 04b - 9V
+ blank - 05a Bus 05b - blank
+ D0    - 06a Bus 06b - GND
+ D1    - 07a Bus 07b - GND
+ D2    - 08a Bus 08b - CLK
+ D6    - 09a Bus 09b - A0
+ D5    - 10a Bus 10b - A1
+ D3    - 11a Bus 11b - A2
+ D4    - 12a Bus 12b - A3
+ /INT  - 13a Bus 13b - /IORQGE
+ /NMI  - 14a Bus 14b - GND
+ /HALT - 15a Bus 15b - VIDEO
+ /MREQ - 16a Bus 16b - Y
+ /IORQ - 17a Bus 17b - V
+ /RD   - 18a Bus 18b - U
+ /WR   - 19a Bus 19b - /BUSRQ
+ -5V   - 20a Bus 20b - /RESET
+ /WAIT - 21a Bus 21b - A7
+ +12V  - 22a Bus 22b - A6
+ 12VAC - 23a Bus 23b - A5
+ /M1   - 24a Bus 24b - A4
+ /RFSH - 25a Bus 25b - /ROMCS
+ A8    - 26a Bus 26b - /BUSACK
+ A10   - 27a Bus 27b - A9
+ NC    - 28a Bus 28b - A11
+
+```
 
 <!-- Images -->
 
