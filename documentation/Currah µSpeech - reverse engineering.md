@@ -12,6 +12,7 @@ The Cheetah and [dk'tronics speech](https://vintagecomputermuseum.com/collection
  - [SP0256 PDF](https://www.100y.com.tw/pdf_file/SPO256.pdf)
  - [Currah Microspeech (Currah µSpeech)](https://k1.spdns.de/Vintage/Sinclair/82/Peripherals/Currah%20uSpeech/)
  - [Tech notes](https://problemkaputt.de/zxdocs.htm#aboutthisdocument)
+ - [Speech with an SP0256-AL2](https://www.rehsdonline.com/post/speech-with-an-sp0256-al2)
 
 
 ## Notes
@@ -23,14 +24,14 @@ From [this image](https://maziac.github.io/currah_uspeech_tests/pics/hw.jpg), ta
 [![Annotted hardware][2]][2]
 
 
- - (`U1`) [SP0256A-AL2 SemiConductor - DIP24 - Littelfuse](https://www.ebay.co.uk/itm/175559442527), £39.99+£4.99
+ - (`U1` 28 pins) [SP0256A-AL2 SemiConductor - DIP24 - Littelfuse](https://www.ebay.co.uk/itm/175559442527), £39.99+£4.99
  - [SP0256-AL2](https://en.wikipedia.org/wiki/General_Instrument_SP0256)
- - (`U2`) 2kB ROM - 9316C 
+ - (`U2` 24 pins) 2kB ROM - 9316C 
    - [HOW TO READ 9316 ROMS](https://www.mikesarcade.com/cgi-bin/spies.cgi?action=url&type=info&page=9316.txt)
    - ROM code?
    - Pinout?
    - AKA 2316 or RO-3-9316C
- - (`U3`) ULA - LA05-147 (IC code from [this image](https://i.ebayimg.com/images/g/y~sAAeSwXudqgWE~/s-l1600.webp), from [Currah MicroSpeech ZX Spectrum Speech Sound Device Untested for Parts Or Repair](https://www.ebay.co.uk/itm/227477894410)
+ - (`U3` 28 pins) ULA - LA05-147 (IC code from [this image](https://i.ebayimg.com/images/g/y~sAAeSwXudqgWE~/s-l1600.webp), from [Currah MicroSpeech ZX Spectrum Speech Sound Device Untested for Parts Or Repair](https://www.ebay.co.uk/itm/227477894410)
 
    [![ULA IC code][1]][1]
 
@@ -82,13 +83,15 @@ Note:
  - [Resistor chart](https://www.thegeekpub.com/calculators/resistor-calculator-calculate-the-value-of-resistors/) - wrong for 4 bands
  - [Resistor color code](https://www.physics-and-radio-electronics.com/electronic-devices-and-circuits/passive-components/resistors/resistorcolorcode.html) - better for four band
 
-The placement of the two smooth brown cylindrical components, next to the regulator, make one think that they are actually capacitors.
+#### The mystery blue and brown components are capacitors
+
+The placement of the two smooth brown cylindrical components, next to the regulator, makes one think that they are actually capacitors.
 
 Also, the two smooth brown cylindrical components at the bottom of this photo:
 
 [![Hardware][3]][3]
  
-have been replaced with two more small blue components, in this photo
+have been replaced with two more small blue components, in this photo:
  
 [![More blue components, including the bypass capacitor - capacitors][4]][4]
  
@@ -98,6 +101,52 @@ Therefore is is safe to conclude that the small blue components and the smooth b
 
 
 ### Pinout
+
+#### SP0256
+
+```none
+          +---v---+
+   GND  1 |       | 28  OSC2
+ RESET  2 |       | 27  OSC1
+ROMDIS  3 |       | 26  ROMCLK
+    C1  4 |       | 25  /SBY_RESET
+    C2  5 |       | 24  DIGITAL_OUT
+    C3  6 |       | 23  VDI
+   VCC  7 |       | 22  TEST
+   SBY  8 |       | 21  SER_IN
+  /LRQ  9 |       | 20  /ALD
+    A8 10 |       | 19  SE
+    A7 11 |       | 18  A1
+SEROUT 12 |       | 17  A2
+    A6 13 |       | 16  A3
+    A5 14 |       | 15  A4
+          +-------+
+```
+
+
+#### UART
+
+```none
+          +---v---+
+        1 |       | 28  Vcc (+5V)
+        2 |       | 27  
+        3 |       | 26  
+        4 |       | 25  
+        5 |       | 24  
+        6 |       | 23  
+        7 |       | 22  
+        8 |       | 21  
+        9 |       | 20  
+       10 |       | 19  
+       11 |       | 18  
+       12 |       | 17  
+       13 |       | 16  
+   GND 14 |       | 15  
+          +-------+
+```
+
+Pin 27 tied to ground
+
 
 #### 9316C
 
@@ -119,6 +168,20 @@ Therefore is is safe to conclude that the small blue components and the smooth b
 ```
 
 EPROM/EEPROM equivalent?
+
+Use a [OneROM](https://onerom.org/buy/)!!!? See [Emulate a 9316C ROM for Currah Microspeech (µSpeech) #301](https://github.com/piersfinlayson/one-rom/discussions/301). As pointed out in the discussion, the logic of the ROM's three chip select lines needs to be determined (active high or low):
+
+Pins select (wrong):
+
+ - 18 - CS2 - ? (no *visible* connection)
+ - 20 - CS1 - ULA pin 22 (confused pin 1, pin 22 is opposite pin 7)
+ - 21 - CS3 - Regulated 5V
+
+Recheck
+
+ - 18 - CS2 - Pins 27 and 14 ULA (GND)
+ - 20 - CS1 - Pin 7 ULA
+ - 21 - CS3 - Regulated 5V
 
 ##### 2716 EPROM
 
