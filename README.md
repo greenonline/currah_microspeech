@@ -14,6 +14,25 @@ Similar to [Solving a 30-Year-Old Amiga Mystery](https://www.youtube.com/watch?v
 
 If you close your eyes and listen to these Speech Synths, you will have absolutely no idea what they are saying... However, if you can see the text, then yes, the "noise" starts to make sense.
 
+### Board variants
+
+Observation: There are, at least, two versions of the PCB:
+
+ 1. Earlier revision:
+    - R11 is present
+    - No bodge resistor from the ULA pin 9 to the bus. 
+    - The traces are "wrinkly".
+    - Pin 12 (SER_OUT) of the SP0256 is tied to GND. Clerly, no output should be tied to either of the supply lines, adn hence, pin 12 is physical cut on the SP0256, in these earlier revisions, as can be seen in [this photo](xtras/images/hw.jpg) and [this close up](xtras/images/hw_pin12_removed.jpg) of the early board.
+ 2. Later revison:
+    - R11 is not present
+    - There is a bodge resistor from the ULA pin 9 to the bus. 
+    - The traces are sharper and more "professional" looking.
+
+## See also
+
+ - TMS5220
+
+
 ## Links
 
  - [Currah uSpeech user guide](https://k1.spdns.de/Vintage/Sinclair/82/Peripherals/Currah%20uSpeech/Manual.pdf)
@@ -21,14 +40,17 @@ If you close your eyes and listen to these Speech Synths, you will have absolute
 ### Videos
 
  - [Sinclair ZX Spectrum Currah Microspeech & Sound Output](https://www.youtube.com/watch?v=PdAvMTof0jo)
+   - Points out that many of the bus pins are not soldered
+   - Use spudgers to crack the case
  - [Commodore 64 (C64) Currah Speech 64 (Voice Messenger) Cart Repair](https://www.youtube.com/watch?v=vUIuqzf1G7I)
  - [Your Spectrum can talk! Let’s look at the Currah Microspeech](https://www.youtube.com/watch?v=UcAVrcGmlvw)
    - Sounds better than the SweetTalker
+ - [Currah μSpeech for the ZX Spectrum Ένας synthesizer φωνής για τον ZX Spectrum.](https://www.youtube.com/watch?v=Rg5Jq9OneWg)
 
 
 ### Useful links
 
- - [Currah%20uSpeech](https://k1.spdns.de/Vintage/Sinclair/82/Peripherals/Currah%20uSpeech/)
+ - [Currah uSpeech](https://k1.spdns.de/Vintage/Sinclair/82/Peripherals/Currah%20uSpeech/)
  - [ZXDocs](https://problemkaputt.de/zxdocs.htm)
  - [currah_uspeech_tests](https://maziac.github.io/currah_uspeech_tests/)
  - [CURRAH MICRO SPEECH (USPEECH)](https://blog.bisinternet.com/index.php/sinclair/zx-spectrum/currah-micro-speech-uspeech/)
