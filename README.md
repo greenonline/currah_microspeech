@@ -22,7 +22,7 @@ Observation: There are, at least, two versions of the PCB:
     - R11 is present
     - No bodge resistor from the ULA pin 9 to the bus. 
     - The traces are "wrinkly".
-    - Pin 12 (SER_OUT) of the SP0256 is tied to GND. Clerly, no output should be tied to either of the supply lines, adn hence, pin 12 is physical cut on the SP0256, in these earlier revisions, as can be seen in [this photo](xtras/images/hw.jpg) and [this close up](xtras/images/hw_pin12_removed.jpg) of the early board.
+    - Pin 12 (SER_OUT) of the SP0256 is tied to GND. Clearly, no output should be tied to either of the supply lines, and hence, pin 12 is physical cut on the SP0256, in these earlier revisions, as can be seen in [this photo](xtras/images/hw.jpg) and [this close up](xtras/images/hw_pin12_removed.jpg) of the early board.
  2. Later revison:
     - R11 is not present
     - There is a bodge resistor from the ULA pin 9 to the bus. 
