@@ -147,6 +147,63 @@ SEROUT 12 |       | 17  A2
 
 Pins 14 & 27 tied to ground
 
+Pin 7 must be an output to CS1 on ROM
+Pin 27 must be an input if tied to GND
+
+One column
+
+| Pin | IOPut |
+|-----|-------|
+|     |       |
+|  1  |       |
+|  2  |       |
+|  3  |       |
+|  4  |       |
+|  5  |       |
+|  6  |       |
+|  7  | Output|
+|  8  |       |
+|  9  |       |
+| 10  |       |
+| 11  |       |
+| 12  |       |
+| 13  |       |
+| 14  |       |
+| 15  |       |
+| 16  |       |
+| 17  |       |
+| 18  |       |
+| 19  |       |
+| 20  |       |
+| 21  |       |
+| 22  |       |
+| 23  |       |
+| 24  |       |
+| 25  |       |
+| 26  |       |
+| 27  |  Input|
+| 28  |       |
+
+Two columns
+
+| Pin | IOPut | Pin | IOPut |
+|-----|-------|-----|-------|
+|     |       |     |       |
+|  1  |       |  28 |       |
+|  2  |       |  27 | Input |
+|  3  |       |  26 |       |
+|  4  |       |  25 |       |
+|  5  |       |  24 |       |
+|  6  |       |  23 |       |
+|  7  | Output|  22 |       |
+|  8  |       |  21 |       |
+|  9  |       |  20 |       |
+| 10  |       |  19 |       |
+| 11  |       |  18 |       |
+| 12  |       |  17 |       |
+| 13  |       |  16 |       |
+| 14  |       |  15 |       |
+|     |       |     |       |
 
 #### 9316C
 
@@ -177,7 +234,7 @@ Pins select (wrong):
  - 20 - CS1 - ULA pin 22 (confused pin 1, pin 22 is opposite pin 7)
  - 21 - CS3 - Regulated 5V
 
-Recheck
+Recheck:
 
  - 18 - CS2 - GND
  - 20 - CS1 - Pin 7 ULA
