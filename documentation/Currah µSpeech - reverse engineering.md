@@ -123,8 +123,10 @@ SEROUT 12 |       | 17  A2
           +-------+
 ```
 
+Note that `/LRQ` and `SBY` are outputs (as specified in the datasheet).
 
-#### UART
+
+#### ULA
 
 ```none
           +---v---+
@@ -145,10 +147,13 @@ SEROUT 12 |       | 17  A2
           +-------+
 ```
 
-Pins 14 & 27 tied to ground
+Note: Pins 14 & 27 tied to ground
 
-Pin 7 must be an output to CS1 on ROM
-Pin 27 must be an input if tied to GND
+Inputs and outputs:
+
+ - Pin 7 must be an output to CS1 on ROM
+ - Pin 27 must be an input if tied to GND
+ - Pin 2 must be an input as SBY is an output
 
 One column
 
@@ -156,7 +161,7 @@ One column
 |-----|-------|
 |     |       |
 |  1  |       |
-|  2  |       |
+|  2  | Input |
 |  3  |       |
 |  4  |       |
 |  5  |       |
@@ -168,7 +173,7 @@ One column
 | 11  |       |
 | 12  |       |
 | 13  |       |
-| 14  |       |
+| 14  |  GND  |
 | 15  |       |
 | 16  |       |
 | 17  |       |
@@ -182,15 +187,15 @@ One column
 | 25  |       |
 | 26  |       |
 | 27  |  Input|
-| 28  |       |
+| 28  |  VCC  |
 
 Two columns
 
 | Pin | IOPut | Pin | IOPut |
 |-----|-------|-----|-------|
 |     |       |     |       |
-|  1  |       |  28 |       |
-|  2  |       |  27 | Input |
+|  1  |       |  28 | VCC   |
+|  2  | Input |  27 | Input |
 |  3  |       |  26 |       |
 |  4  |       |  25 |       |
 |  5  |       |  24 |       |
@@ -202,7 +207,7 @@ Two columns
 | 11  |       |  18 |       |
 | 12  |       |  17 |       |
 | 13  |       |  16 |       |
-| 14  |       |  15 |       |
+| 14  | GND   |  15 |       |
 |     |       |     |       |
 
 #### 9316C
