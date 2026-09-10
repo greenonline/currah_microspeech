@@ -90,15 +90,17 @@ Two photos of the PCB, from [currah_uspeech_tests](https://maziac.github.io/curr
 
  [![rear][2]][2]
 
-It might be possible to derive a partial schematic from the two images.
+It was possible to derive a partial schematic from the two images (the remianing was achieved by testing a physical unit).
 
 From [Sinclair ZX Spectrum Currah Microspeech & Sound Output](https://www.youtube.com/watch?v=PdAvMTof0jo):
 
- - [SP0256-AL2](http://www.bitsavers.org/components/gi/speech/General_Instrument_-_SP0256A-AL2_datasheet_(Radio_Shack_276-1784)_-_Apr1984.pdf)
- - ULA
- - ROM
+ - Speech unit: [SP0256-AL2](http://www.bitsavers.org/components/gi/speech/General_Instrument_-_SP0256A-AL2_datasheet_(Radio_Shack_276-1784)_-_Apr1984.pdf)
+ - ULA: ULA_LA05_147
+ - ROM: 9316C
 
 For the reverse-engineering of the board, please see [Currah µSpeech - reverse engineering](documentation/Currah%20µSpeech%20-%20reverse%20engineering.md).
+
+----
 
 ## Cheetah Sweet Talker
 
