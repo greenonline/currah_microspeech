@@ -188,8 +188,9 @@ See [Currah µSpeech - reverse engineering](Currah%20µSpeech%20-%20reverse%20en
  A8    - 26a Bus 26b - /BUSACK
  A10   - 27a Bus 27b - A9
  NC    - 28a Bus 28b - A11
-
 ```
+
+See also [ZX Spectrum Expansion Bus Overview](https://www.scribd.com/document/717386736/The-expansion-bus-on-the-ZX-Spectrum)
 
 <!-- Images -->
 
