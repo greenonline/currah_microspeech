@@ -32,9 +32,27 @@ J2                    R4      R1        C3         J3
 ```
 
 
-J3 is bus
+Headers:
 
-Front side
+ - J1 is the RF/UHF push connector
+ - J2 is the three wire flying audio cable
+ - J3 is the ZX Spectrum bus
+
+Discrete:
+
+ - Q1 2N2907 EBC
+ - D1 1N914
+
+ICs:
+
+ - U1 SP0256A-AL2 (28 pin)
+ - U2 ROM 9316C (24 pin)
+ - U3 ULA LA05-147 (28 pin)
+ - U4 7805
+
+### ZX Spectrum bus
+
+#### Front side
 
 ```none
  Bus 01a - ULA 12
@@ -67,7 +85,7 @@ Front side
  Bus 28a - ULA 16
 ```
  
-back side
+#### Rear side
 
 ```none
  Bus 01b - via ULA 13
@@ -101,28 +119,11 @@ back side
 ```
  
 
-Discrete:
-
- - Q1 2N2907 EBC
- - D1 1N914
-
-ICs:
-
- - U1 SP0256A-AL2 (28 pin)
- - U2 ROM 9316C (24 pin)
- - U3 ULA LA05-147 (28 pin)
- - U4 7805
-
+### R11
 
 Interestingly, this photo, from [Sinclair ZX Spectrum Currah Microspeech & Sound Output](https://www.youtube.com/watch?v=PdAvMTof0jo), shows R11 unpopulated:
 
 [![R11 unpopulated][3]][3]
-
-This photo, from the same video, shows a bodged resistor between pin 9 ULA and a pin on the ZXSpectrum bus?
-
-[![Bodged resistor][4]][4]
-
-It is also a different revision of the PCB, or in better condition. The traces are much more defined and not so "bubbly and crinkled", as the traces on the PCB in the [currah_uspeech_tests](https://maziac.github.io/currah_uspeech_tests) blog.
 
 From this image, taken from [CURRAH MICRO SPEECH (USPEECH)](https://blog.bisinternet.com/index.php/sinclair/zx-spectrum/currah-micro-speech-uspeech/), it can be seen that R11 does *not* actually go to pin 26 of the SP0256
 
@@ -131,6 +132,16 @@ From this image, taken from [CURRAH MICRO SPEECH (USPEECH)](https://blog.bisinte
 From this image, taken from [currah_uspeech_tests](https://maziac.github.io/currah_uspeech_tests/), it looked as if R11 did, as well as going to pin 1 of the ULA (but now I am not even sure of that):
 
 [![Annotated hardware][6]][6]
+
+### Bodged resistor
+
+This photo, from the same video, shows a bodged resistor between pin 9 ULA and a pin on the ZXSpectrum bus?
+
+[![Bodged resistor][4]][4]
+
+### PCB revision
+
+This latter photo is also of a different revision of the PCB, or in better condition. The traces are much more defined and not so "bubbly and crinkled", as the traces on the PCB in the [currah_uspeech_tests](https://maziac.github.io/currah_uspeech_tests) blog.
 
 ### Determining layout/traces by physical device
 
@@ -142,6 +153,8 @@ By this point, I had managed to get hold of a physical device from eBay (£21.50
 Would it make sense that the ULA only decodes info from the bus, to direct action on the PCB? Therefore, all bus connections to the ULA would be just input.
 
 Or would the ULA need to signal back to the CPU?
+
+See [Currah µSpeech - reverse engineering](Currah%20µSpeech%20-%20reverse%20engineering.md) for details about the ULA.
 
 ### ZX bus for reference
 
