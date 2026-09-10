@@ -130,6 +130,8 @@ Note thqt in this PCB, the SP0256 is always operating in MODE 1, as SE is tied t
 
 #### ULA
 
+ULA_LA05_147
+
 ```none
           +---v---+
         1 |       | 28  Vcc (+5V)
