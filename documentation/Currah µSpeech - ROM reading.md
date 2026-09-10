@@ -27,6 +27,7 @@ The sme process can be applied to the ULA.
  - [Unable to read older GI 9316b ROM in programmers - Suggestions?](https://www.eevblog.com/forum/microcontrollers/unable-to-read-older-gi-9316b-rom-in-programmers-suggestions/)
  - [HOW TO READ 9316 ROMS](https://www.mikesarcade.com/cgi-bin/spies.cgi?action=url&type=info&page=9316.txt)
  - [9316B Rom replacement](https://forum.allaboutcircuits.com/threads/9316b-rom-replacement.69569/)
+ - [Datasheet 9316](https://www.datasheetarchive.com/?q=ro-3-9316b)
 
 ## Notes
 
