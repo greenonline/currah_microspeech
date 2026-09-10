@@ -125,6 +125,8 @@ SEROUT 12 |       | 17  A2
 
 Note that `/LRQ` and `SBY` are outputs (as specified in the datasheet).
 
+Note thqt in this PCB, the SP0256 is always operating in MODE 1, as SE is tied to 5V.
+
 
 #### ULA
 
@@ -151,23 +153,39 @@ Note: Pins 14 & 27 tied to ground
 
 Inputs and outputs:
 
+ - Pin 1 must be an output as conected to /ALD which is an input
+ - Pin 2 must be an input as connected to SBY which is an output
+ - Pin 4 must be an output to A0 on ROM
+ - Pin 5 must be an output to A8 on ROM
+ - Pin 6 must be an output to A9 on ROM
  - Pin 7 must be an output to CS1 on ROM
+ - Pin 8 must be an output to A10 on ROM
+ - Pin 17 must be an output to A1 on ROM
+ - Pin 19 must be an output to A2 on ROM
+ - Pin 20 must be an output to A3 on ROM
+ - Pin 21 must be an output to A4 on ROM
+ - Pin 22 must be an output to A5 on ROM
+ - Pin 23 must be an output to A6 on ROM
+ - Pin 24 must be an output to A7 on ROM
+ - Pin 25 could be an output as connected to RESET which is an input?
  - Pin 27 must be an input if tied to GND
- - Pin 2 must be an input as SBY is an output
+
+
+Note: The address lines could also be ULA inputs, *if* also coming from the ZX Spectrum bus.
 
 One column
 
 | Pin | IOPut |
 |-----|-------|
 |     |       |
-|  1  |       |
+|  1  | Output|
 |  2  | Input |
 |  3  |       |
-|  4  |       |
-|  5  |       |
-|  6  |       |
+|  4  | Output|
+|  5  | Output|
+|  6  | Output|
 |  7  | Output|
-|  8  |       |
+|  8  | Output|
 |  9  |       |
 | 10  |       |
 | 11  |       |
@@ -176,15 +194,15 @@ One column
 | 14  |  GND  |
 | 15  |       |
 | 16  |       |
-| 17  |       |
+| 17  |Output |
 | 18  |       |
-| 19  |       |
-| 20  |       |
-| 21  |       |
-| 22  |       |
-| 23  |       |
-| 24  |       |
-| 25  |       |
+| 19  |Output |
+| 20  |Output |
+| 21  |Output |
+| 22  |Output |
+| 23  |Output |
+| 24  |Output |
+| 25  |Output?|
 | 26  |       |
 | 27  |  Input|
 | 28  |  VCC  |
@@ -194,18 +212,18 @@ Two columns
 | Pin | IOPut | Pin | IOPut |
 |-----|-------|-----|-------|
 |     |       |     |       |
-|  1  |       |  28 | VCC   |
+|  1  | Output|  28 | VCC   |
 |  2  | Input |  27 | Input |
 |  3  |       |  26 |       |
-|  4  |       |  25 |       |
-|  5  |       |  24 |       |
-|  6  |       |  23 |       |
-|  7  | Output|  22 |       |
-|  8  |       |  21 |       |
-|  9  |       |  20 |       |
-| 10  |       |  19 |       |
+|  4  | Output|  25 |Output?|
+|  5  | Output|  24 |Output |
+|  6  | Output|  23 |Output |
+|  7  | Output|  22 |Output |
+|  8  | Output|  21 |Output |
+|  9  |       |  20 |Output |
+| 10  |       |  19 |Output |
 | 11  |       |  18 |       |
-| 12  |       |  17 |       |
+| 12  |       |  17 |Output |
 | 13  |       |  16 |       |
 | 14  | GND   |  15 |       |
 |     |       |     |       |
