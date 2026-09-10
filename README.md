@@ -90,7 +90,7 @@ Two photos of the PCB, from [currah_uspeech_tests](https://maziac.github.io/curr
 
  [![rear][2]][2]
 
-It was possible to derive a partial schematic from the two images (the remianing was achieved by testing a physical unit).
+It was possible to derive a partial schematic from the two images (the remainder was achieved by testing a physical unit).
 
 From [Sinclair ZX Spectrum Currah Microspeech & Sound Output](https://www.youtube.com/watch?v=PdAvMTof0jo):
 
