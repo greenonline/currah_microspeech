@@ -155,19 +155,20 @@ Inputs and outputs:
 
  - Pin 1 must be an output as conected to /ALD which is an input
  - Pin 2 must be an input as connected to SBY which is an output
- - Pin 4 must be an output to A0 on ROM
- - Pin 5 must be an output to A8 on ROM
- - Pin 6 must be an output to A9 on ROM
- - Pin 7 must be an output to CS1 on ROM
- - Pin 8 must be an output to A10 on ROM
- - Pin 17 must be an output to A1 on ROM
- - Pin 19 must be an output to A2 on ROM
- - Pin 20 must be an output to A3 on ROM
- - Pin 21 must be an output to A4 on ROM
- - Pin 22 must be an output to A5 on ROM
- - Pin 23 must be an output to A6 on ROM
- - Pin 24 must be an output to A7 on ROM
- - Pin 25 could be an output as connected to RESET which is an input?
+ - Pin 4 must be an input to A0 on BUS (also A0 on ROM) 
+ - Pin 5 must be an input to A1 on BUS (also A8 on ROM)
+ - Pin 6 must be an input to A2 on BUS (also A9 on ROM)
+ - Pin 7 must be an output to CS1 on ROM only?
+ - Pin 8 must be an input to A3 on BUS (also A10 on ROM)
+ - Pin 11 must be an input to A12 on BUS
+ - Pin 17 must be an input to A9 on BUS (also A1 on ROM)
+ - Pin 19 must be an input to A4 on BUS (also A2 on ROM)
+ - Pin 20 must be an input to A5 on BUS (also A3 on ROM)
+ - Pin 21 must be an input to A10 on BUS (also A4 on ROM)
+ - Pin 22 must be an input to A8 on BUS (also A5 on ROM)
+ - Pin 23 must be an input to A6 on BUS (also A6 on ROM)
+ - Pin 24 must be an input to A7 on BUS (also A7 on ROM)
+ - Pin 25 could be an output as connected to RESET on SP0256 which is an input?
  - Pin 27 must be an input if tied to GND
 
 
@@ -181,27 +182,27 @@ One column
 |  1  | Output|
 |  2  | Input |
 |  3  |       |
-|  4  | Output|
-|  5  | Output|
-|  6  | Output|
+|  4  | Input |
+|  5  | Input |
+|  6  | Input |
 |  7  | Output|
-|  8  | Output|
-|  9  |       |
-| 10  |       |
-| 11  |       |
-| 12  |       |
+|  8  | Input |
+|  9  |  NC?  |
+| 10  |  NC?  |
+| 11  | Input |
+| 12  |  NC?  |
 | 13  |       |
 | 14  |  GND  |
 | 15  |       |
 | 16  |       |
-| 17  |Output |
+| 17  | Input |
 | 18  |       |
-| 19  |Output |
-| 20  |Output |
-| 21  |Output |
-| 22  |Output |
-| 23  |Output |
-| 24  |Output |
+| 19  | Input |
+| 20  | Input |
+| 21  | Input |
+| 22  | Input |
+| 23  | Input |
+| 24  | Input |
 | 25  |Output?|
 | 26  |       |
 | 27  |  Input|
@@ -215,15 +216,15 @@ Two columns
 |  1  | Output|  28 | VCC   |
 |  2  | Input |  27 | Input |
 |  3  |       |  26 |       |
-|  4  | Output|  25 |Output?|
-|  5  | Output|  24 |Output |
-|  6  | Output|  23 |Output |
-|  7  | Output|  22 |Output |
-|  8  | Output|  21 |Output |
-|  9  |       |  20 |Output |
-| 10  |       |  19 |Output |
-| 11  |       |  18 |       |
-| 12  |       |  17 |Output |
+|  4  | Input |  25 |Output?|
+|  5  | Input |  24 | Input |
+|  6  | Input |  23 | Input |
+|  7  | Output|  22 | Input |
+|  8  | Input |  21 | Input |
+|  9  | NC?   |  20 | Input |
+| 10  | NC?   |  19 | Input |
+| 11  | Input |  18 |       |
+| 12  | NC?   |  17 | Input |
 | 13  |       |  16 |       |
 | 14  | GND   |  15 |       |
 |     |       |     |       |
