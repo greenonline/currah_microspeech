@@ -161,7 +161,11 @@ Inputs and outputs:
  - Pin 7 must be an output to CS1 on ROM only?
  - Pin 8 must be an input to A3 on BUS (also A10 on ROM)
  - Pin 11 must be an input to A12 on BUS
+ - Pin 13 must be an input to A14 on BUS
+ - Pin 15 must be an input? to /ROMCS on BUS
+ - Pin 16 must be an xxx? to NC? on BUS
  - Pin 17 must be an input to A9 on BUS (also A1 on ROM)
+ - Pin 18 must be an input to A11 on BUS
  - Pin 19 must be an input to A4 on BUS (also A2 on ROM)
  - Pin 20 must be an input to A5 on BUS (also A3 on ROM)
  - Pin 21 must be an input to A10 on BUS (also A4 on ROM)
@@ -169,6 +173,7 @@ Inputs and outputs:
  - Pin 23 must be an input to A6 on BUS (also A6 on ROM)
  - Pin 24 must be an input to A7 on BUS (also A7 on ROM)
  - Pin 25 could be an output as connected to RESET on SP0256 which is an input?
+ - Pin 26 must be an input to /WR on BUS
  - Pin 27 must be an input if tied to GND
 
 
@@ -191,12 +196,12 @@ One column
 | 10  |  NC?  |
 | 11  | Input |
 | 12  |  NC?  |
-| 13  |       |
+| 13  | Input |
 | 14  |  GND  |
-| 15  |       |
-| 16  |       |
+| 15  | Input?|
+| 16  | NC?   |
 | 17  | Input |
-| 18  |       |
+| 18  | Input |
 | 19  | Input |
 | 20  | Input |
 | 21  | Input |
@@ -204,7 +209,7 @@ One column
 | 23  | Input |
 | 24  | Input |
 | 25  |Output?|
-| 26  |       |
+| 26  | Input |
 | 27  |  Input|
 | 28  |  VCC  |
 
@@ -215,7 +220,7 @@ Two columns
 |     |       |     |       |
 |  1  | Output|  28 | VCC   |
 |  2  | Input |  27 | Input |
-|  3  |       |  26 |       |
+|  3  |       |  26 | Input |
 |  4  | Input |  25 |Output?|
 |  5  | Input |  24 | Input |
 |  6  | Input |  23 | Input |
@@ -223,11 +228,32 @@ Two columns
 |  8  | Input |  21 | Input |
 |  9  | NC?   |  20 | Input |
 | 10  | NC?   |  19 | Input |
-| 11  | Input |  18 |       |
+| 11  | Input |  18 | Input |
 | 12  | NC?   |  17 | Input |
-| 13  |       |  16 |       |
-| 14  | GND   |  15 |       |
+| 13  | Input |  16 | to NC?|
+| 14  | GND   |  15 | Input?|
 |     |       |     |       |
+
+Two columns with connections (for convenience)
+
+| Pin | IOPut | Conn. | Pin | IOPut | Conn. |
+|-----|-------|-------|-----|-------|-------|
+|     |       |       |     |       |       |
+|  1  | Output| /ALD  |  28 | VCC   | +5V   |
+|  2  | Input | SBY   |  27 | Input | GND   |
+|  3  |       |       |  26 | Input | /WR   |
+|  4  | Input | A0    |  25 |Output?| RESET |
+|  5  | Input | A1    |  24 | Input | A7    |
+|  6  | Input | A2    |  23 | Input | A6    |
+|  7  | Output| CS1   |  22 | Input | A8    |
+|  8  | Input | A3    |  21 | Input | A10   |
+|  9  | NC?   | NC?   |  20 | Input | A5    |
+| 10  | NC?   | NC?   |  19 | Input | A4    |
+| 11  | Input | A12   |  18 | Input | A11   |
+| 12  | NC?   | NC?   |  17 | Input | A9    |
+| 13  | Input | A14   |  16 | to NC?| BUS NC|
+| 14  | GND   | GND   |  15 | Input?| /ROMCS|
+|     |       |       |     |       |       |
 
 #### 9316C
 
