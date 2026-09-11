@@ -66,7 +66,8 @@ From the [datasheet](https://www.datasheetarchive.com/?q=ro-3-9316b):
 ### Sketch
 
 ```none
-// Sketch to read 9316C ROM
+// ROMread_9316
+// Sketch to read 9316C ROM (from Currah µSpeech)
 
 // Delay in microseconds - only really needs to be 1, if at all...
 unsigned int delayTime = 50;
@@ -425,6 +426,8 @@ void loop()
   }
 }
 ```
+
+Also, in [ROMread_9316.ino](../xtras/ROMread_9316.ino)
 
 ### ROM Contents
 
