@@ -304,7 +304,14 @@ void loop()
 
 #endif
 
-#ifdef __USE_BITREAD__    
+#ifdef __USE_BITREAD__  
+
+    // Causes warning: 
+    // warning: right shift count >= width of type [-Wshift-count-overflow]
+    // ...
+    // #define bitRead(value, bit) (((value) >> (bit)) & 0x01)
+    // byte outA9 = bitRead(outByte, 89);  
+    
     // From [Convert int to binary Array](https://forum.arduino.cc/t/convert-int-to-binary-array/116781/2)
     byte outA0 = bitRead(outByte, 0);
     byte outA1 = bitRead(outByte, 1);
