@@ -13,14 +13,14 @@ Why not try to reverse engineer a Currah µSpeech ROM using an Arduino (Mega)?
    - Arduino data lines connected to ROM Address lines configured as outputs
    - Arduino data lines connected to ROM Data lines configured as inputs
    - If available, add three Arduino data lines to the ROM chip select lines, otherwise do manually HIGH and LOW:
-     - Pin 18 LOW
-     - Pin 20 ???
-     - Pin 21 HIGH
+     - `CS2`: Pin 18 LOW
+     - `CS1`: Pin 20 ??? (it turned out that CS1 is active `LOW`)
+     - `CS3`: Pin 21 HIGH
    - Cycle through the ROM addresses (0000h - 0800h), outputing on the Arduino data lines connected to the address lines of the ROM
    - Wait 1-2 µS, even though the access time for the 9316C is only 450 nS (max.)
    - Read the ROM data, reading the Arduino data lines connected to the data lines of the ROM
 
-The sme process can be applied to the ULA.
+The same process can be applied to the ULA.
 
 ## Links
 
