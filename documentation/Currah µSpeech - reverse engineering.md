@@ -17,19 +17,19 @@ The Cheetah and [dk'tronics speech](https://vintagecomputermuseum.com/collection
 
 ## Notes
 
-### Component identification
+### IC identification
 
 From [this image](https://maziac.github.io/currah_uspeech_tests/pics/hw.jpg), taken from [currah_uspeech_tests](https://maziac.github.io/currah_uspeech_tests/):
 
-[![Annotted hardware][2]][2]
+[![Annotated hardware][2]][2]
 
 
  - (`U1` 28 pins) [SP0256A-AL2 SemiConductor - DIP24 - Littelfuse](https://www.ebay.co.uk/itm/175559442527), £39.99+£4.99
  - [SP0256-AL2](https://en.wikipedia.org/wiki/General_Instrument_SP0256)
  - (`U2` 24 pins) 2kB ROM - 9316C 
    - [HOW TO READ 9316 ROMS](https://www.mikesarcade.com/cgi-bin/spies.cgi?action=url&type=info&page=9316.txt)
-   - ROM code?
-   - Pinout?
+   - ROM code: [ROM.txt](../xtras/ROM.txt)
+   - Pinout: See below
    - AKA 2316 or RO-3-9316C
  - (`U3` 28 pins) ULA - LA05-147 (IC code from [this image](https://i.ebayimg.com/images/g/y~sAAeSwXudqgWE~/s-l1600.webp), from [Currah MicroSpeech ZX Spectrum Speech Sound Device Untested for Parts Or Repair](https://www.ebay.co.uk/itm/227477894410)
 
@@ -37,6 +37,7 @@ From [this image](https://maziac.github.io/currah_uspeech_tests/pics/hw.jpg), ta
 
    - ULA code??? TTL equivalent circuit?
 
+Note: Simple single-wipe DIP sockets are used.
 
 ### Sourcing the unit and parts
 
@@ -46,7 +47,7 @@ Please see [Currah µSpeech - purchasing](documentation/Currah%20µSpeech%20-%20
 
 32 components + 2 connectors (bus and video)
 
- - 7805 5V regulator (U4)
+ - 7805 5V regulator (`U4`)
  - Resistors:
    - at least 16? + 1 x big red
    - 2 x dark brown: (brown green orange gold): 1, 5, 3, 0.1 = 15.3 Ohm??? => 15k (`R1`, `R2`)
@@ -123,9 +124,25 @@ SEROUT 12 |       | 17  A2
           +-------+
 ```
 
-Note that `/LRQ` and `SBY` are outputs (as specified in the datasheet).
+Note that `/LRQ` and `SBY` are outputs (as specified in the datasheet):
 
-Note thqt in this PCB, the SP0256 is always operating in MODE 1, as SE is tied to 5V.
+ - `SBY`, pin 8, is connected to pin 2 of the ULA
+ - `/LRQ`, pin 9, is not connected
+
+These outputs are for ROM control and not used/connected:
+
+ - `ROM_DISABLE`, pin 3
+ - `C1`, pin 4
+ - `C2`, pin 5
+ - `C3`, pin 6
+ - `ROM_CLK`, pin 26 goes to `r11`, and in later PCB revisions, is not connected either.
+
+These inputs are not used/connected:
+
+ - `SER_IN`, pin 21
+ - `/SBY_RESET`, pin 25 is connected to ULA pin 25
+
+Note that, on this PCB, the SP0256 is always operating in MODE 1, as SE is tied to 5V.
 
 
 #### ULA
@@ -328,18 +345,17 @@ From [HOW TO READ 9316 ROMS](https://www.mikesarcade.com/cgi-bin/spies.cgi?actio
 
 Also, [9316B Rom replacement](https://forum.allaboutcircuits.com/threads/9316b-rom-replacement.69569/)
 
-
 > For the base I am using a 2kb cartridge that contained a 9316B rom and I have replaced it with an at28c16 eeprom. I have successfully written to the eeprom using an arduino but for the life of me I can't get it to work. I have seen various sources quoting that the 9316B and 2716 are pin compatible (hence the 2816 should be too right?) and others saying pins 18 and 21 need to be swapped. I have tried both of these layouts and had no success.
 
 ### Reading the ROM, avoiding any issues
 
-See [Currah µSpeech - ROM reading](Currah%20µSpeech%20-%20ROM%20reading.md)
+Using an Arduino Mega, I had no such concerns. See [Currah µSpeech - ROM reading](Currah%20µSpeech%20-%20ROM%20reading.md).
 
 <!-- Images -->
 
 
   [1]: ../xtras/images/Currah%20internals.png "ULA IC code"
-  [2]: ../xtras/images/hw.jpg "Annotted hardware"
+  [2]: ../xtras/images/hw.jpg "Annotated hardware"
   [3]: ../xtras/images/hw.jpg "Hardware"
   [4]: ../xtras/images/Currah%20internals.png "More blue components, including the bypass capacitor - capacitors"
 
