@@ -49,33 +49,33 @@ Please see [Currah µSpeech - purchasing](documentation/Currah%20µSpeech%20-%20
  - 7805 5V regulator (U4)
  - Resistors:
    - at least 16? + 1 x big red
-   - 2 x dark brown: (brown green orange gold): 1, 5, 3, 0.1 = 15.3 Ohm??? => 15k (R1, R2)
+   - 2 x dark brown: (brown green orange gold): 1, 5, 3, 0.1 = 15.3 Ohm??? => 15k (`R1`, `R2`)
    - 1 x pink (blue blue orange red red): 6, 6, 3, 10, ±1% = 6k6
-     - (red red orange silver silver): 2, 2, 3, 0.01, ±10% = 2R2 (R3)
+     - (red red orange silver silver): 2, 2, 3, 0.01, ±10% = 2R2 (`R3`)
      - (red red orange grey grey): 2, 2, 3, 100M, ±0.05, = 22300M
    - 6 x green 
-     - 2 x (red red red silver gold): 2, 2, 2, 0.01, ±5% = 2.2 Ohm (R4, R5)
-     - 3 x (brown black black gold black): 1, 0 , 0, 0.1, ? = 10 Ohm (R6, R7, R8)
-     - 1 x (brown red black gold black): 1, 2, 0, 0.1, ? = 12 Ohm (R9)
+     - 2 x (red red red silver gold): 2, 2, 2, 0.01, ±5% = 2.2 Ohm (`R4`, `R5`)
+     - 3 x (brown black black gold black): 1, 0 , 0, 0.1, ? = 10 Ohm (`R6`, `R7`, `R8`)
+     - 1 x (brown red black gold black): 1, 2, 0, 0.1, ? = 12 Ohm (`R9`)
    - 7 x light brown 
-     - 2 x (blue grey brown gold): 6, 8, 1, 0.1 = 68 Ohm => 680R (R10, R11)
-     - 2 x (brown black green gold): 1, 0, 5, 0.1 = 10.5 Ohm => 1M (R12, R13)
-     - 1 x (red red red gold): 2, 2, 2, 0.1 = 22.2 Ohm => 2k2 (R14)
-     - 1 x (brown black orange gold): 1, 0, 3, 0.1 = 10.3 Ohm => 10k (R15)
-     - 1 x (red red orange gold): 2, 2, 3, 0.1 = 22.3 Ohm => 22k (R16)
-   - 1 x big red (brown red black silver?): 1, 2, 0, 0.01 = 1.2 Ohm => 12R (not 120R???) (R17)
- - Variable cap (CV1)
- - 2 x small blue (inductor/choke?) (L1->C4, L2->C5) (maybe capacitor
- - Big black (inductor/choke?) (L5), is this a big capacitor (C6)?
+     - 2 x (blue grey brown gold): 6, 8, 1, 0.1 = 68 Ohm => 680R (`R10`, `R11`)
+     - 2 x (brown black green gold): 1, 0, 5, 0.1 = 10.5 Ohm => 1M (`R12`, `R13`)
+     - 1 x (red red red gold): 2, 2, 2, 0.1 = 22.2 Ohm => 2k2 (`R14`)
+     - 1 x (brown black orange gold): 1, 0, 3, 0.1 = 10.3 Ohm => 10k (`R15`)
+     - 1 x (red red orange gold): 2, 2, 3, 0.1 = 22.3 Ohm => 22k (`R16`)
+   - 1 x big red (brown red black silver?): 1, 2, 0, 0.01 = 1.2 Ohm => 12R (not 120R???) (`R17`)
+ - Variable cap (`CV1`)
+ - 2 x small blue (inductor/choke?) (L1->`C4`, L2->`C5`) (maybe capacitor
+ - Big black (inductor/choke?) (L5->`C6`), is this a big capacitor?
  - Diodes
-   - 1 x red IN4014? (D1)
-   - 2 x black/yellow (germanium?) (small signal or zener? schottky?) (D2, D3)
- - Transistor (Q1)
+   - 1 x red IN4014? (`D1`)
+   - 2 x black/yellow (germanium?) (small signal or zener? schottky?) (`D2`, `D3`)
+ - Transistor (`Q1`)
    - PNP in datasheet of SPO256 2N2907
    - EBC
  - Cap
-   - 1 x Bypass on ULA, 100 nF - 1 µF (C1)
- - Two smooth light brown cylinders - inductors? (L3->C2, L4->C3) (maybe capacitors?) L3 100 nF, L4 330 nF for a typical 7805 application
+   - 1 x Bypass on ULA, 100 nF - 1 µF (`C1`)
+ - Two smooth light brown cylinders - inductors? (L3->`C2`, L4->`C3`) (maybe capacitors?) L3 100 nF, L4 330 nF for a typical 7805 application
 
 
 Note:
@@ -243,7 +243,7 @@ Two columns with connections (for convenience)
 |     |       |       |     |       |       |
 |  1  | Output| /ALD  |  28 | VCC   | +5V   |
 |  2  | Input | SBY   |  27 | Input | GND   |
-|  3  |       |       |  26 | Input | /WR   |
+|  3  |       | R13   |  26 | Input | /WR   |
 |  4  | Input | A0    |  25 |Output?| RESET |
 |  5  | Input | A1    |  24 | Input | A7    |
 |  6  | Input | A2    |  23 | Input | A6    |
