@@ -68,9 +68,9 @@ From the [datasheet](https://www.datasheetarchive.com/?q=ro-3-9316b):
 ```none
 // Sketch to read 9316C ROM
 
-// Use bitshift method for bit detection
+// Use bit-shift method for bit detection
 #define __USE_BITSHIFT__
-// Use bitshift method for bit detection (causes warning)
+// Use bitRead() method for bit detection (causes warning)
 //#define __USE_BITREAD__
 
 // Address lines
