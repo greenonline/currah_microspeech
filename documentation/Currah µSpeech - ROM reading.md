@@ -224,6 +224,7 @@ void loop()
 
 #if (!defined __USE_BITREAD__)  &&  !defined(__USE_BITSHIFT__) 
 
+  // For old skool method
   int outA0;
   int outA1;
   int outA2;
@@ -235,6 +236,7 @@ void loop()
   int outA8;
   int outA9;
   int outA10;
+  
 #endif
 
   // Loop 2^11 times = 0-2047
@@ -243,7 +245,7 @@ void loop()
 
 #if (!defined __USE_BITREAD__)  &&  !defined(__USE_BITSHIFT__) 
 
-    // Old skool
+    // Old skool method
     outA0 = outByte % 2;
     if (outByte > 1023){
       outA10 = 1;
@@ -285,6 +287,7 @@ void loop()
       outA2 = 1;
       outByte = outByte - 2;
     }
+    
 #endif
 
 #ifdef __USE_BITSHIFT__    
@@ -324,6 +327,7 @@ void loop()
     byte outA8 = bitRead(outByte, 8);
     byte outA9 = bitRead(outByte, 89);
     byte outA10 = bitRead(outByte, 10);
+    
 #endif
 
     digitalWrite(romA0, outA0);
