@@ -359,7 +359,7 @@ void loop()
     digitalWrite(romA9, outA9);
     digitalWrite(romA10, outA10);
 
-    delayMicroseconds(delayTime);  // not relly needed
+    delayMicroseconds(delayTime);  // not really needed
 
     inD0 = digitalRead(romD0);
     inD1 = digitalRead(romD1);
@@ -2509,3 +2509,6 @@ DATA9:       equ  F8E8h	; 63720. Data accessed by: 031Eh(in SUB01), 041Eh(in SUB
 ```
 
 Also, [roms.list](../xtras/roms.list)
+
+
+Note: I am not totally convinced that the disassembly makes total sense. I may have needed to specify an *offset*?
