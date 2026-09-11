@@ -397,6 +397,8 @@ void loop()
     inByteOld[byteCount - 1] = inByte;
 
     if (byteCount == 8) {
+      Serial.print(outByteOld < 4096 ? "0" : "");
+      Serial.print(outByteOld < 256 ? "0" : "");
       Serial.print(outByteOld < 16 ? "0" : "");
       Serial.print(outByteOld, HEX);
       Serial.print(" : ");
