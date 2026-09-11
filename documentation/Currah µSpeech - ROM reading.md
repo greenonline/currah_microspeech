@@ -68,7 +68,7 @@ From the [datasheet](https://www.datasheetarchive.com/?q=ro-3-9316b):
 ```none
 // Sketch to read 9316C ROM
 
-// Delay in microseconds - only relly needs to be 1, if at all...
+// Delay in microseconds - only really needs to be 1, if at all...
 unsigned int delayTime = 50;
 
 // Use bit-shift method for bit detection
