@@ -717,7 +717,7 @@ with open("my_custom_rom.bin", "wb") as f:
     f.write(data)
 ```
 
-Creates a binary file:
+THis script creates a binary file:
 
 
 ```none
@@ -763,8 +763,9 @@ with open("rom.txt", "rt") as infile:
 # Write the data to a .bin file
 with open("my_custom_rom.bin", "wb") as f:
     f.write(data)
-
 ```
+
+Binary file available here, [rom.bin](../xtras/rom.bin)
 
 ### Disassembly for real
 
