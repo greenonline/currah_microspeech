@@ -315,6 +315,7 @@ Inverted logic on two of the enable pins, and the VPP replaces CS3
           +-------+
 ```
 
+### Possible issues reading the ROM
 
 From [HOW TO READ 9316 ROMS](https://www.mikesarcade.com/cgi-bin/spies.cgi?action=url&type=info&page=9316.txt)
 
@@ -330,7 +331,9 @@ Also, [9316B Rom replacement](https://forum.allaboutcircuits.com/threads/9316b-r
 
 > For the base I am using a 2kb cartridge that contained a 9316B rom and I have replaced it with an at28c16 eeprom. I have successfully written to the eeprom using an arduino but for the life of me I can't get it to work. I have seen various sources quoting that the 9316B and 2716 are pin compatible (hence the 2816 should be too right?) and others saying pins 18 and 21 need to be swapped. I have tried both of these layouts and had no success.
 
+### Reading the ROM, avoiding any issues
 
+See [Currah µSpeech - ROM reading](Currah%20µSpeech%20-%20ROM%20reading.md)
 
 <!-- Images -->
 
