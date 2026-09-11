@@ -18,7 +18,7 @@ If you close your eyes and listen to these Speech Synths, you will have absolute
 
 Observation: There are, at least, two versions of the PCB:
 
- 1. Earlier revision:
+ 1. Earlier version:
     - R11 is present
     - No bodge resistor from the ULA pin 9 to the bus. 
     - The traces are "wrinkly".
@@ -27,6 +27,18 @@ Observation: There are, at least, two versions of the PCB:
     - R11 is not present
     - There is a bodge resistor from the ULA pin 9 to the bus, as can be seen in [this photo](xtras/images/Bodged%20resistor.png) of the later revision PCB. 
     - The traces are sharper and more "professional" looking, again, as can be seen in [this photo](xtras/images/Bodged%20resistor.png) of the later revision PCB.
+
+### Board bugs
+
+#### Early version
+
+1. ULA pin 16 is connected to the `NC` pin on the ZXSpectrum bus
+2. `SER_OUT` is grounded, requiring pin cutting on pin 12 of SP0256
+3. `R11` not required, as removed from later boards?
+
+#### Later revision
+
+1. Bodge resistor
 
 ## See also
 
