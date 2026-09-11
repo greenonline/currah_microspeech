@@ -2502,4 +2502,4 @@ DATA9:       equ  F8E8h	; 63720. Data accessed by: 031Eh(in SUB01), 041Eh(in SUB
 ; ...
 ```
 
-Also, [roms.lst](../xtras/roms.lst)
+Also, [roms.list](../xtras/roms.list)
