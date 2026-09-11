@@ -694,6 +694,8 @@ Also, in [ROM.txt](../xtras/ROM.txt)
 
 ### Disassemble
 
+Use this:
+
  - [z80dismblr](https://github.com/maziac/z80dismblr)
 
 The ROM file needs to be in  `SNA` format, or a binary `.bin` file.
@@ -717,11 +719,12 @@ with open("my_custom_rom.bin", "wb") as f:
     f.write(data)
 ```
 
-THis script creates a binary file:
+This script creates a binary file:
 
 
 ```none
 import re
+
 #hexaPattern = re.compile(r'\s([0-9a-fA-F]+))?\s')
 hexaPattern = re.compile(r'([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s')
 
@@ -761,9 +764,11 @@ with open("rom.txt", "rt") as infile:
 #data[1] = 0x42  # 'B' (An example custom header)
 
 # Write the data to a .bin file
-with open("my_custom_rom.bin", "wb") as f:
+with open("rom.bin", "wb") as f:
     f.write(data)
 ```
+
+Python script available here, [tobin.py](../xtras/tobin.py)
 
 Binary file available here, [rom.bin](../xtras/rom.bin)
 
