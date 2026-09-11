@@ -73,6 +73,11 @@ From the [datasheet](https://www.datasheetarchive.com/?q=ro-3-9316b):
 // Use bitRead() method for bit detection (causes warning)
 //#define __USE_BITREAD__
 
+// Use hex output - one line one byte
+//#define __USE_HEX_SINGLE__
+// Use hex output - one line eight bytes
+#define __USE_HEX_ROW__
+
 // Address lines
 int romA0;
 int romA1;
@@ -211,6 +216,10 @@ void setup()
 
 void loop()
 {
+  int byteCount = 1;
+  int outByteOld = 0;
+  int inByteOld[8] = { -1, -1, -1, -1, -1, -1, -1, -1};
+
   // Byte to read
   int inD0;
   int inD1;
@@ -222,7 +231,7 @@ void loop()
   int inD7;
   int inByte;
 
-#if (!defined __USE_BITREAD__)  &&  !defined(__USE_BITSHIFT__) 
+#if (!defined __USE_BITREAD__)  &&  !defined(__USE_BITSHIFT__)
 
   // For old skool method
   int outA0;
@@ -236,61 +245,61 @@ void loop()
   int outA8;
   int outA9;
   int outA10;
-  
+
 #endif
 
   // Loop 2^11 times = 0-2047
   for (int outByte = 0; outByte < 2048; outByte++)
   {
 
-#if (!defined __USE_BITREAD__)  &&  !defined(__USE_BITSHIFT__) 
+#if (!defined __USE_BITREAD__)  &&  !defined(__USE_BITSHIFT__)
 
     // Old skool method
     outA0 = outByte % 2;
-    if (outByte > 1023){
+    if (outByte > 1023) {
       outA10 = 1;
       outByte = outByte - 1024;
     }
-    if (outByte > 511){
+    if (outByte > 511) {
       outA9 = 1;
       outByte = outByte - 512;
     }
-    if (outByte > 255){
+    if (outByte > 255) {
       outA8 = 1;
       outByte = outByte - 256;
     }
-    if (outByte > 127){
+    if (outByte > 127) {
       outA7 = 1;
       outByte = outByte - 128;
     }
-    if (outByte > 63){
+    if (outByte > 63) {
       outA6 = 1;
       outByte = outByte - 64;
     }
-    if (outByte > 31){
+    if (outByte > 31) {
       outA5 = 1;
       outByte = outByte - 32;
     }
-    if (outByte > 15){
+    if (outByte > 15) {
       outA4 = 1;
       outByte = outByte - 16;
     }
-    if (outByte > 7){
+    if (outByte > 7) {
       outA3 = 1;
       outByte = outByte - 8;
     }
-    if (outByte > 3){
+    if (outByte > 3) {
       outA2 = 1;
       outByte = outByte - 4;
     }
-    if (outByte > 1){
+    if (outByte > 1) {
       outA2 = 1;
       outByte = outByte - 2;
     }
-    
+
 #endif
 
-#ifdef __USE_BITSHIFT__    
+#ifdef __USE_BITSHIFT__
 
     // From https://stackoverflow.com/questions/523724/c-c-check-if-one-bit-is-set-in-i-e-int-variable
     byte outA0 = outByte & (1 << 0);
@@ -307,14 +316,14 @@ void loop()
 
 #endif
 
-#ifdef __USE_BITREAD__  
+#ifdef __USE_BITREAD__
 
-    // Causes warning: 
+    // Causes warning:
     // warning: right shift count >= width of type [-Wshift-count-overflow]
     // ...
     // #define bitRead(value, bit) (((value) >> (bit)) & 0x01)
-    // byte outA9 = bitRead(outByte, 89);  
-    
+    // byte outA9 = bitRead(outByte, 89);
+
     // From [Convert int to binary Array](https://forum.arduino.cc/t/convert-int-to-binary-array/116781/2)
     byte outA0 = bitRead(outByte, 0);
     byte outA1 = bitRead(outByte, 1);
@@ -327,7 +336,7 @@ void loop()
     byte outA8 = bitRead(outByte, 8);
     byte outA9 = bitRead(outByte, 89);
     byte outA10 = bitRead(outByte, 10);
-    
+
 #endif
 
     digitalWrite(romA0, outA0);
@@ -355,9 +364,55 @@ void loop()
 
     inByte = (128 * inD7) + (64 * inD6) + (32 * inD5) + (16 * inD4) + (8 * inD3) + (4 * inD2) + (2 * inD1) + inD0;
 
+#if !defined(__USE_HEX_SINGLE__)  && !defined(__USE_HEX_ROW__)
+
     Serial.print (outByte);
     Serial.print (" : ");
     Serial.println (inByte);
+
+#endif
+
+#if defined(__USE_HEX_SINGLE__)
+
+    // from https://forum.arduino.cc/t/serial-print-value-hex/463868/5
+
+    Serial.print("0x");
+    Serial.print(outByte < 16 ? "0" : "");
+    Serial.print(outByte, HEX);
+    Serial.print(" : ");
+    Serial.print("0x");
+    Serial.print(inByte < 16 ? "0" : "");
+    Serial.print(inByte, HEX);
+    Serial.print(" : ");
+    Serial.println (inByte);
+
+#endif
+
+#if defined(__USE_HEX_ROW__)
+
+    if (byteCount == 1) {
+      outByteOld = outByte;
+    }
+
+    inByteOld[byteCount - 1] = inByte;
+
+    if (byteCount == 8) {
+      Serial.print(outByteOld < 16 ? "0" : "");
+      Serial.print(outByteOld, HEX);
+      Serial.print(" : ");
+      for (int n = 0; n < 8; n++) {
+        Serial.print(inByteOld[n] < 16 ? "0" : "");
+        Serial.print(inByteOld[n], HEX);
+        Serial.print(" ");
+        inByteOld[n] = -1;  // clear old value
+      }
+      Serial.println();
+      byteCount = 0;
+    }
+    byteCount++;
+
+#endif
+
   }
 }
 ```
