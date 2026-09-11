@@ -190,10 +190,12 @@ void setup()
   pinMode(romA9, OUTPUT);    // A9
   pinMode(romA10, OUTPUT);    // A10
 
+  if (flgPlatform != kUno) {
   // Chip select lines
-  pinMode(romCS1, OUTPUT);    // CS1
-  pinMode(romCS2, OUTPUT);    // CS2
-  pinMode(romCS3, OUTPUT);    // CS3
+    pinMode(romCS1, OUTPUT);    // CS1
+    pinMode(romCS2, OUTPUT);    // CS2
+    pinMode(romCS3, OUTPUT);    // CS3
+  }
 
   // Data lines
   pinMode(romD0, INPUT);     // D0
@@ -205,11 +207,13 @@ void setup()
   pinMode(romD6, INPUT);     // D6
   pinMode(romD7, INPUT);     // D7
 
-  // Set ROM chip select lines
-  digitalWrite(romCS1, LOW);    // Currah unknown
-  digitalWrite(romCS1, HIGH);   // Currah unknown
-  digitalWrite(romCS2, LOW);    // Currah tied to GND
-  digitalWrite(romCS3, HIGH);   // Currah tied to VCC
+  if (flgPlatform != kUno) {
+    // Set ROM chip select lines
+    digitalWrite(romCS1, LOW);    // Currah unknown
+    //digitalWrite(romCS1, HIGH);   // Currah unknown
+    digitalWrite(romCS2, LOW);    // Currah tied to GND
+    digitalWrite(romCS3, HIGH);   // Currah tied to VCC
+  }
 
   Serial.begin(9600);
 }
