@@ -164,7 +164,7 @@ Inputs and outputs:
  - Pin 8 must be an input to A3 on BUS (also A10 on ROM)
  - Pin 11 must be an input to A12 on BUS
  - Pin 13 must be an input to A14 on BUS
- - Pin 15 must be an input? to /ROMCS on BUS
+ - Pin 15 must be an output to [/ROMCS](https://sinclair.wiki.zxnet.co.uk/wiki/ZX_Spectrum_edge_connector#ROM_disable_pins) on BUS
  - Pin 16 must be an xxx? to NC? on BUS
  - Pin 17 must be an input to A9 on BUS (also A1 on ROM)
  - Pin 18 must be an input to A11 on BUS
@@ -200,7 +200,7 @@ One column
 | 12  |  NC?  |
 | 13  | Input |
 | 14  |  GND  |
-| 15  | Input?|
+| 15  |Output |
 | 16  | NC?   |
 | 17  | Input |
 | 18  | Input |
@@ -233,7 +233,7 @@ Two columns
 | 11  | Input |  18 | Input |
 | 12  | NC?   |  17 | Input |
 | 13  | Input |  16 | to NC?|
-| 14  | GND   |  15 | Input?|
+| 14  | GND   |  15 | Output|
 |     |       |     |       |
 
 Two columns with connections (for convenience)
@@ -254,7 +254,7 @@ Two columns with connections (for convenience)
 | 11  | Input | A12   |  18 | Input | A11   |
 | 12  | NC?   | NC?   |  17 | Input | A9    |
 | 13  | Input | A14   |  16 | to NC?| BUS NC|
-| 14  | GND   | GND   |  15 | Input?| /ROMCS|
+| 14  | GND   | GND   |  15 | Output| /ROMCS|
 |     |       |       |     |       |       |
 
 #### 9316C
