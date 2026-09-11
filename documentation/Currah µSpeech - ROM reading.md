@@ -119,32 +119,32 @@ void setup()
   if (flgPlatform == kMega) {
     // Arduino Mega End bus - start
     // Address lines
-    romA0 = 20;
-    romA1 = 22;
-    romA2 = 24;
-    romA3 = 26;
-    romA4 = 28;
-    romA5 = 30;
-    romA6 = 32;
-    romA7 = 34;
-    romA8 = 36;
-    romA9 = 38;
-    romA10 = 40;
+    romA0 = 22;
+    romA1 = 24;
+    romA2 = 26;
+    romA3 = 28;
+    romA4 = 30;
+    romA5 = 32;
+    romA6 = 34;
+    romA7 = 36;
+    romA8 = 38;
+    romA9 = 40;
+    romA10 = 42;
 
     // Chip select lines
-    romCS1 = 44;
-    romCS2 = 46;
-    romCS3 = 48;
+    romCS1 = 44; //44;
+    romCS2 = 46; //46;
+    romCS3 = 48; //48;
 
     // Data lines
-    romD0 = 21;
-    romD1 = 23;
-    romD2 = 25;
-    romD3 = 27;
-    romD4 = 29;
-    romD5 = 31;
-    romD6 = 33;
-    romD7 = 35;
+    romD0 = 23;
+    romD1 = 25;
+    romD2 = 27;
+    romD3 = 29;
+    romD4 = 31;
+    romD5 = 33;
+    romD6 = 35;
+    romD7 = 37;
     // Arduino Mega End bus - end
   }
 
@@ -212,8 +212,8 @@ void setup()
 
   if (flgPlatform != kUno) {
     // Set ROM chip select lines
-    digitalWrite(romCS1, LOW);    // Currah unknown
-    //digitalWrite(romCS1, HIGH);   // Currah unknown
+    digitalWrite(romCS1, LOW);    // Currah CS1  active LOW
+    //digitalWrite(romCS1, HIGH); // To disable chip
     digitalWrite(romCS2, LOW);    // Currah tied to GND
     digitalWrite(romCS3, HIGH);   // Currah tied to VCC
   }
