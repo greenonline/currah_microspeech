@@ -22,6 +22,14 @@ Why not try to reverse engineer a Currah µSpeech ROM using an Arduino (Mega)?
 
 The same process can be applied to the ULA.
 
+## Fritzing
+
+Note: the 9316 is wider than shown in the digram below. I had to modify an AD5206, which was the only 24 pin DIP that I could find in the [beta version](https://github.com/fritzing/fritzing-app/releases/tag/CD-498) of Fritzing that I was using:
+
+[![Fritzing of the 9316 ROM reader][1]][1]
+
+  [1]: ../xtras/images/9316C_reading_bb2.jpg "Fritzing of the 9316 ROM reader"
+
 ## Links
 
  - [Unable to read older GI 9316b ROM in programmers - Suggestions?](https://www.eevblog.com/forum/microcontrollers/unable-to-read-older-gi-9316b-rom-in-programmers-suggestions/)
@@ -726,7 +734,7 @@ This script creates a binary file:
 import re
 
 #hexaPattern = re.compile(r'\s([0-9a-fA-F]+))?\s')
-hexaPattern = re.compile(r'([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s([0-9a-fA-F][0-9a-fA-F])\s')
+hexaPattern = re.compile(r'([0-9a-fA-F]{2})\s([0-9a-fA-F]{2})\s([0-9a-fA-F]{2})\s([0-9a-fA-F]{2})\s([0-9a-fA-F]{2})\s([0-9a-fA-F]{2})\s([0-9a-fA-F]{2})\s([0-9a-fA-F]{2})\s')
 
 # Create an array of bytes you want in your ROM
 # Example: 16 Kilobytes filled with 0xFF (often used as padding)
