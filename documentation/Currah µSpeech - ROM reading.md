@@ -2,6 +2,10 @@
 
 ## Preamble
 
+**NOTE: THE ROM IMAGE WAS TAKEN FROM A DEFECTIVE ROM. DO NOT USE!!!**
+
+*I shall procure another unit, to dump the ROM from, at a later date*
+
 Why not try to reverse engineer a Currah µSpeech ROM using an Arduino (Mega)? 
 
 ## Process
@@ -438,6 +442,8 @@ void loop()
 Also, in [ROMread_9316.ino](../xtras/ROMread_9316.ino)
 
 ### ROM Contents
+
+Note: This was taken from a defective ROM IC. DO NOT USE!
 
 ```none
 0000 : A5 1E BF 2A 2F 10 5D 44 
@@ -2520,3 +2526,13 @@ Also, [roms.list](../xtras/roms.list)
 
 
 Note: I am not totally convinced that the disassembly makes total sense. I may have needed to specify an *offset*?
+
+The next day, I took more ROM dumps and unfortunately, it appears that some of the bytes are spurious results (~11 differences), and the incorrect bytes vary upon each read.
+
+When I initially wired up the "harness", I had accidenty connected +5V to the input A0 (no worry) and to the output D0 (most serious). So, I may have damaged the ROM...
+
+Of course, it could also be down to a noisy breadboard.
+
+Increasing the delay, just caused there to be more spurious bytes (~41 differences).
+
+Also, the ROM chip gets very hot, which is also not a good sign.
